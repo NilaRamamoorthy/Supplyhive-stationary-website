@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Supplyhive Header</title>
+
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Dancing+Script:wght@400..700&family=League+Spartan:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pacifico&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Playwrite+AU+NSW:wght@100..400&family=Poetsen+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <!-- CSS -->
+     <link rel="stylesheet" href="./asserts/css/base.css">
+    <style>
+        .product-img {
+      border-radius: 15px;
+      object-fit: cover;
+    }
+    .feature-list {
+      padding-left: 1rem;
+    }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white ">
+        <div class="container-fluid">
+            <!-- Logo and Brand -->
+            <a class="navbar-brand d-flex align-items-center" href="./index.html">
+                <img src="./asserts/images/logo.png" alt="Logo" class="me-2 mx-4">
+                <strong>Supplyhive</strong>
+            </a>
+
+            <!-- Toggler -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Nav Items -->
+            <div class="collapse navbar-collapse" id="navbarContent">
+                 <ul class="navbar-nav ms-3 me-auto mb-2 mb-lg-0 justify-content-between">
+                    <li class="nav-item">
+                        <a class="nav-link " href="./index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="./shop.html">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./aboutus.html">About us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-primary" href="./signup.html">Login/Register</a>
+                    </li>
+                </ul>
+
+                <!-- Search bar -->
+                <form class="d-flex search-bar">
+                    <input class="form-control search-input bg-primary" type="search"
+                        placeholder="Search for Stationery" aria-label="Search">
+                    <button class="btn search-button" type="submit"><i class="bi bi-search"></i></button>
+                </form>
+
+                <!-- Icons -->
+                <ul class="navbar-nav ms-3">
+                    <li class="nav-item me-3">
+                        <a class="nav-link" href="./cart.html"><i class="bi bi-cart fs-5"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="bi bi-person-circle fs-5"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+<!-- Product Description -->
+  <div class="container mt-5">
+    <h2 class="text-end fw-bold mb-4">Product Description</h2>
+    <div class="row">
+      <!-- Left: Image & Price -->
+      <div class="col-md-6 text-center">
+        <img id="product-img" src="" class="img-fluid rounded mb-3" width="350" alt="Product Image"/>
+        <h5 id="product-name" class="fw-semibold"></h5>
+        <p class="mb-0"><strong id="product-price"></strong></p>
+        <p id="bulk-offer" class="fw-bold text-success"></p>
+        <!-- <button class="btn btn-primary me-2" onclick="addToCart()">Add to Cart</button>
+        <button class="btn btn-success" onclick="buyNow()">Buy Now</button> -->
+      </div>
+
+      <!-- Right: Description -->
+      <div class="col-md-6">
+        <h4 id="product-title"></h4>
+        <h6 class="fw-bold">Advanced Functionality for Students and Professionals</h6>
+        <p>
+          This product is designed to meet the needs of students, engineers, and professionals. Equipped with a high-contrast display, it supports over 200 functions including algebraic, trigonometric, statistical, and complex number calculations. The ergonomic keypad layout ensures ease of use during exams or fieldwork, and the durable construction makes it ideal for daily use. Whether you're solving equations, analyzing data, or exploring functions, this calculator delivers reliable and accurate performance every time.
+        </p>
+        <h5 class="fw-bold">Key Features:</h5>
+        <ul>
+          <li>Supports fractions, exponents, logarithms, and trigonometric functions</li>
+          <li>Multi-line display for reviewing inputs and results</li>
+          <li>Ideal for high school, college, and professional use</li>
+          <li>Battery-powered with auto power-off for extended life</li>
+          <li>Lightweight and compact design for portability</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+<!-- Comments & Review -->
+<div class="container my-5">
+  <h4 class="text-center fw-bold mb-4">Comments & Review</h4>
+
+  <div class="mb-4">
+    <h5><strong>1. Positive Review – Student Perspective</strong></h5>
+    <p><strong>Rating:</strong> ★★★★★</p>
+    <p>“This calculator has been a lifesaver for my high school math and physics classes. It’s easy to use, has all the necessary functions, and the multi-line display makes checking work super simple. Definitely worth it for students!”</p>
+  </div>
+
+  <div class="mb-4">
+    <h5><strong>2. Positive Review – Professional/Engineer</strong></h5>
+    <p><strong>Rating:</strong> ★★★★★</p>
+    <p>“Excellent build quality and functionality. I use this for quick field calculations, and it's accurate and responsive. The layout is intuitive, and it handles complex equations with no trouble. Great value for engineers or technicians.”</p>
+  </div>
+
+  <div class="mb-4">
+    <h5><strong>3. Neutral Review – General Use</strong></h5>
+    <p><strong>Rating:</strong> ★★★★☆</p>
+    <p>“Good calculator overall. It covers all the basic and advanced functions I need, though the user manual could be clearer for beginners. Once you get used to the button layout, it’s a solid tool.”</p>
+  </div>
+
+  <div class="mb-4">
+    <h5><strong>4. Critical Review – Beginner User</strong></h5>
+    <p><strong>Rating:</strong> ★★★☆☆</p>
+    <p>“I found this calculator a bit overwhelming at first. It has a lot of functions, but the instructions weren’t very beginner-friendly. It works fine, but I had to look up tutorials online to figure it out.”</p>
+  </div>
+
+  <div class="text-center">
+    <button onclick="addToCart()" class="btn btn-primary btn-lg me-3">ADD TO CART</button>
+    <button onclick="buyNow()" class="btn btn-primary btn-lg">BUY NOW</button>
+  </div>
+</div>
+
+    <!-- Footer -->
+    <footer class="bg-white pt-4">
+        <div class="container">
+            <!-- Top Row: Logo and Copyright -->
+            <div class="d-flex align-items-center mb-4">
+                <div class="footer-logo me-3">
+                    <img src="./asserts/images/logo.png" alt="Supplyhive Logo">
+                </div>
+                <div>
+                    <div class="footer-title">Supplyhive</div>
+                    <div class="text-muted">2025 Supplyhive Limited</div>
+                </div>
+            </div>
+
+            <!-- Middle Row: Footer Links -->
+            <div class="row text-start d-flex justify-content-center align-items-center">
+                <div class="col-6 col-md-2 footer-section">
+                    <h6>Company</h6>
+                    <a href="#" class="footer-link">About us</a>
+                    <a href="#" class="footer-link">Supplyhive corporate</a>
+                    <a href="#" class="footer-link">Careers</a>
+                    <a href="#" class="footer-link">Team</a>
+                </div>
+                <div class="col-6 col-md-2 footer-section">
+                    <h6>Contact us</h6>
+                    <a href="#" class="footer-link">Help & Support</a>
+                    <a href="#" class="footer-link">Partner with us</a>
+                    <a href="#" class="footer-link">Ride with us</a>
+                </div>
+                <div class="col-6 col-md-2 footer-section">
+                    <h6>Available in</h6>
+                    <a href="#" class="footer-link">Coimbatore</a>
+                    <a href="#" class="footer-link">Bengaluru</a>
+                    <a href="#" class="footer-link">Chennai</a>
+                    <a href="#" class="footer-link">Kolkata</a>
+                </div>
+                <div class="col-6 col-md-2 footer-section">
+                    <h6>Legal</h6>
+                    <a href="#" class="footer-link">Terms & Conditions</a>
+                    <a href="#" class="footer-link">Cookie policy</a>
+                    <a href="#" class="footer-link">Privacy Policy</a>
+                </div>
+                <div class="col-12 col-md-2 footer-section">
+                    <h6>Information</h6>
+                    <a href="#" class="footer-link">Location</a>
+                    <a href="#" class="footer-link">Email</a>
+                    <a href="#" class="footer-link">Social Media</a>
+
+                    <div class="footer-social mt-2">
+                        <a href="#"><i class="bi bi-instagram" style="color: #E1306C;"></i></a>
+                        <a href="#"><i class="bi bi-facebook" style="color: #1877F2;"></i></a>
+                        <a href="#"><i class="bi bi-whatsapp" style="color: #25D366;"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Row: App Badges -->
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-4">
+                <p class="mb-2 mb-md-0"><strong>For better experience</strong>, download the app now</p>
+                <div class="d-flex app-badges">
+                    <a href="#"><img
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/512px-Google_Play_Store_badge_EN.svg.png"
+                            alt="Google Play"></a>
+                    <a href="#"><img
+                            src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                            alt="App Store" class="ms-3"></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom text-muted">
+            &copy; 2025 Supplyhive Limited. All rights reserved.
+        </div>
+    </footer>
+
+  <script>
+    const product = JSON.parse(localStorage.getItem("selectedProduct"));
+
+    if (!product) {
+      document.body.innerHTML = "<h3 class='text-center text-danger mt-5'>No product data found.</h3>";
+    } else {
+      document.getElementById("product-img").src = product.image;
+      document.getElementById("product-name").textContent = product.name;
+      document.getElementById("product-title").textContent = product.name;
+      document.getElementById("product-price").textContent = `Rs. ${product.price}`;
+      document.getElementById("bulk-offer").textContent = `Buy pack of 10 @ Rs. ${(product.price * 5).toFixed(0)}`;
+      document.title = product.name + " | Supplyhive";
+    }
+
+    function addToCart() {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const existingIndex = cart.findIndex(item => item.name === product.name);
+      if (existingIndex >= 0) {
+        cart[existingIndex].quantity += 1;
+      } else {
+        product.quantity = 1;
+        cart.push(product);
+      }
+      localStorage.setItem("cart", JSON.stringify(cart));
+      alert(`${product.name} added to cart!`);
+    }
+
+    function buyNow() {
+      addToCart();
+      window.location.href = "billing.html"; // change this if you have a different page
+    }
+  </script>
+</body>
+</html>

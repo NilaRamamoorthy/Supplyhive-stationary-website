@@ -1,0 +1,108 @@
+ * {
+     font-family: "Roboto", sans-serif;
+     font-optical-sizing: auto;
+     font-style: normal;
+     font-variation-settings: "wdth" 100;
+ }
+
+ .navbar-brand img {
+     height: 60px;
+     width: 60px;
+     object-fit: cover;
+ }
+
+ .navbar {
+     padding: 0.8rem 1rem;
+ }
+
+ .nav-link.active {
+     color: #097AFA !important;
+    /* color: #7AABF5!important; */
+    /* color: #D3DFF8!important; */
+     font-weight: 600;
+     /* Optional for emphasis */
+ }
+.navbar-nav{
+    gap: 30px;
+}
+
+ .search-bar {
+     width: 300px;
+ }
+
+ .search-input {
+     border-radius: 30px 0 0 30px;
+     border-right: none;
+ }
+
+ .search-button {
+     border-radius: 0 30px 30px 0;
+     background-color: #007bff;
+     /* color: white; */
+ }
+
+ .search-input::placeholder {
+     color: white;
+     opacity: 1;
+     /* Ensures it's fully visible */
+ }
+
+
+ @media (max-width: 992px) {
+     .search-bar {
+         width: 100%;
+         margin-top: 10px;
+     }
+ }
+
+ /* Footer */
+ .footer-logo img {
+     width: 40px;
+     height: 40px;
+     object-fit: contain;
+ }
+
+ .footer-title {
+     font-weight: bold;
+     font-size: 1.25rem;
+ }
+
+ .footer-section h6 {
+     font-weight: 600;
+     margin-bottom: 1rem;
+ }
+
+ .footer-link {
+     color: #6c757d;
+     text-decoration: none;
+     display: block;
+     margin-bottom: 0.5rem;
+ }
+
+ .footer-link:hover {
+     color: #000;
+ }
+
+ .footer-social i {
+     font-size: 1.25rem;
+     margin-right: 15px;
+     color: #000;
+ }
+
+ .app-badges img {
+     height: 40px;
+ }
+
+ .footer-bottom {
+     padding: 1rem 0;
+     text-align: center;
+     font-size: 0.95rem;
+     border-top: 1px solid #ddd;
+ }
+
+ @media (max-width: 768px) {
+     .app-badges {
+         justify-content: center !important;
+         margin-top: 1rem;
+     }
+ }
