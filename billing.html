@@ -87,15 +87,16 @@
                     <li class="nav-item me-3">
                         <a class="nav-link" href="./cart.html"><i class="bi bi-cart fs-5"></i></a>
                     </li>
-                  <li class="nav-item dropdown">
-  <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-     data-bs-toggle="dropdown" aria-expanded="false">
-    <i class="bi bi-person-circle fs-5"></i>
-  </a>
-  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown" id="userDropdownMenu">
-    <!-- Menu items will be inserted by JS -->
-  </ul>
-</li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-person-circle fs-5"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown"
+                            id="userDropdownMenu">
+                            <!-- Menu items will be inserted by JS -->
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -327,6 +328,7 @@
         const cart = JSON.parse(localStorage.getItem("cart")) || [];
         const orderItemsContainer = document.getElementById("order-items");
         const orderTotal = document.getElementById("order-total");
+// console.log(JSON.parse(localStorage.getItem("cart")));
 
         let total = 0;
 
@@ -340,8 +342,11 @@
                 const row = document.createElement("div");
                 row.className = "row mb-2";
                 row.innerHTML = `
-        <div class="col"><strong>${item.name}</strong> x ${item.quantity}</div>
-        <div class="col text-end">Rs.${itemTotal}</div>
+         <div class="col d-flex align-items-center gap-3">
+    <img src="${item.image}" alt="${item.name}" style="width: 60px; height: 60px; object-fit: contain; border-radius: 8px;">
+    <strong>${item.name}</strong> x ${item.quantity}
+  </div>
+  <div class="col text-end">Rs.${itemTotal}</div>
       `;
                 orderItemsContainer.appendChild(row);
             });
@@ -406,6 +411,7 @@
 
         // Place order logic
         function placeOrder() {
+
             const name = document.getElementById("name").value.trim();
             const address = document.getElementById("address").value.trim();
             const city = document.getElementById("city").value.trim();
@@ -441,28 +447,36 @@
                 }
             }
 
-// Get order item from cart
-let finalItems = [];
-let grandTotal = 0;
+            // Get order item from cart
+            let finalItems = [];
+            let grandTotal = 0;
 
-cart.forEach(item => {
-    const itemTotal = item.quantity >= 10 ? 249 : item.price * item.quantity;
-    grandTotal += itemTotal;
+            cart.forEach(item => {
+                const itemTotal = item.quantity >= 10 ? 249 : item.price * item.quantity;
+                grandTotal += itemTotal;
+console.log("Pushing item:", item);
+console.log("Storing image:", item.image || productImageURL);
 
-    finalItems.push({
-        name: item.name,
-        quantity: item.quantity,
-        subtotal: itemTotal
-    });
-});
+                finalItems.push({
+                    name: item.name,
+                    quantity: item.quantity,
+                    image: item.image || productImageURL,
+                    subtotal: itemTotal
+                });
+            });
 
-const orderSummary = {
-    items: finalItems,
-    total: grandTotal,
-    paymentMethod: method
-};
+            let allOrders = JSON.parse(localStorage.getItem("allOrders")) || [];
 
-localStorage.setItem("orderSummary", JSON.stringify(orderSummary));
+            allOrders.push({
+                items: finalItems,
+                total: grandTotal,
+                paymentMethod: method,
+                orderDate: new Date().toISOString(),
+                deliveryDate: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000).toISOString()
+            });
+
+            localStorage.setItem("allOrders", JSON.stringify(allOrders));
+
 
 
 
@@ -472,7 +486,7 @@ localStorage.setItem("orderSummary", JSON.stringify(orderSummary));
             modal.show();
         }
     </script>
-<script src="./asserts/js/loggin.js"></script>
+    <script src="./asserts/js/loggin.js"></script>
 </body>
 
 </html>
