@@ -95,10 +95,10 @@
                     </li>
                 </ul>
 
-                <!-- Search bar -->
+                  <!-- Search bar -->
                 <form class="d-flex search-bar">
                     <input class="form-control search-input bg-primary" type="search"
-                        placeholder="Search for Stationery" aria-label="Search">
+                        placeholder="Search for Stationery" id="searchInput" aria-label="Search">
                     <button class="btn search-button" type="submit"><i class="bi bi-search"></i></button>
                 </form>
 
@@ -120,6 +120,8 @@
             </div>
         </div>
     </nav>
+    <!-- Main -->
+       <div id="main-content">
   <!-- Image container -->
     <div class="container text-center">
         <img src="./asserts/images/files&folder.png" alt="files&folders" class="mb-4 img-fluid">
@@ -246,23 +248,28 @@
             &copy; 2025 Supplyhive Limited. All rights reserved.
         </div>
     </footer>
-
+</div>
+<div id="results" class="container">
+<div id="search-results"  class="row" style="display: none;">
+  <!-- product cards will appear here -->
+</div>
+</div>
     <!-- Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
 const products = [
-  { id:1,name: "A4 File Folder", price: 90, image: "https://image.made-in-china.com/202f0j00OnyicsDPLfpW/Letter-Size-Assorted-Colors-Transparent-Information-Booklet-A4-Insert-Folder-Office-File-Folders.webp" },
-  { id:2,name: "Document File", price: 120, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5c8dcfYs016kmPTKg6vuUmqOGWLAw01pTYA&s" },
-  { id:3,name: "Plastic Expanding Folder", price: 210, image: "https://5.imimg.com/data5/SELLER/Default/2022/11/RY/AW/ZT/163346239/rangteq-plastics-offers-plastic-file-13-folder-500x500.jpg" },
-  { id:4,name: "Ring Binder", price: 160, image: "https://m.media-amazon.com/images/I/615NuEllDfL._UF1000,1000_QL80_.jpg" },
-  { id:5,name: "Report File", price: 60, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRns2DoeM6s8fbtIi5qBMSVb8DhnB1WjwA1lg&s" },
-  { id:6,name: "Cardboard File", price: 55, image: "https://m.media-amazon.com/images/I/71cjX-9PlAL.jpg" },
-  { id:7,name: "Clip File", price: 130, image: "https://image.made-in-china.com/2f0j00TOoaDBSyrAzh/Factory-Supply-PVC-Paper-Lever-Arch-Clip-File-Folder-2-Ring-Binders.jpg" },
-  { id:8,name: "Zipper File Pouch", price: 110, image: "https://m.media-amazon.com/images/I/91I1nlP0IqS.jpg" },
-  { id:9,name: "Paper Folder Set", price: 175, image: "https://www.mumzworld.com/media/catalog/product/cache/8bf0fdee44d330ce9e3c910273b66bb2/e/s/ess-sn006-essen-plastic-file-folders-set-of-5-1618519718.jpg" },
-  { id:10,name: "Exam Pad File", price: 95, image: "https://5.imimg.com/data5/SELLER/Default/2024/2/390947622/JP/FB/KP/95864112/kids-plastic-truck-toy-500x500.jpg" },
-  { id:11,name: "Hard Cover Folder", price: 199, image: "https://image.made-in-china.com/202f0j00RbfkgsTobJcq/Custom-Design-Printed-Hardcover-A4-Leather-Portfolio-Paper-File-Folder-Paper-Folder.webp" },
-  { id:12,name: "Document Box File", price: 300, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3BEmghbHqaNLZ6I2IAxP-8PH8K0fVnARDtA&s" }
+   { id:49,name: "A4 File Folder", price: 90, image: "https://image.made-in-china.com/202f0j00OnyicsDPLfpW/Letter-Size-Assorted-Colors-Transparent-Information-Booklet-A4-Insert-Folder-Office-File-Folders.webp" },
+  { id:50,name: "Document File", price: 120, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5c8dcfYs016kmPTKg6vuUmqOGWLAw01pTYA&s" },
+  { id:51,name: "Plastic Expanding Folder", price: 210, image: "https://5.imimg.com/data5/SELLER/Default/2022/11/RY/AW/ZT/163346239/rangteq-plastics-offers-plastic-file-13-folder-500x500.jpg" },
+  { id:52,name: "Ring Binder", price: 160, image: "https://m.media-amazon.com/images/I/615NuEllDfL._UF1000,1000_QL80_.jpg" },
+  { id:53,name: "Report File", price: 60, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRns2DoeM6s8fbtIi5qBMSVb8DhnB1WjwA1lg&s" },
+  { id:54,name: "Cardboard File", price: 55, image: "https://m.media-amazon.com/images/I/71cjX-9PlAL.jpg" },
+  { id:55,name: "Clip File", price: 130, image: "https://image.made-in-china.com/2f0j00TOoaDBSyrAzh/Factory-Supply-PVC-Paper-Lever-Arch-Clip-File-Folder-2-Ring-Binders.jpg" },
+  { id:56,name: "Zipper File Pouch", price: 110, image: "https://m.media-amazon.com/images/I/91I1nlP0IqS.jpg" },
+  { id:57,name: "Paper Folder Set", price: 175, image: "https://www.mumzworld.com/media/catalog/product/cache/8bf0fdee44d330ce9e3c910273b66bb2/e/s/ess-sn006-essen-plastic-file-folders-set-of-5-1618519718.jpg" },
+  { id:58,name: "Exam Pad File", price: 95, image: "https://5.imimg.com/data5/SELLER/Default/2024/2/390947622/JP/FB/KP/95864112/kids-plastic-truck-toy-500x500.jpg" },
+  { id:59,name: "Hard Cover Folder", price: 199, image: "https://image.made-in-china.com/202f0j00RbfkgsTobJcq/Custom-Design-Printed-Hardcover-A4-Leather-Portfolio-Paper-File-Folder-Paper-Folder.webp" },
+  { id:60,name: "Document Box File", price: 300, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3BEmghbHqaNLZ6I2IAxP-8PH8K0fVnARDtA&s" }
 ];
 
  function viewProduct(element) {
@@ -344,9 +351,9 @@ function renderProducts(productList) {
   alert(`${product.name} added to cart!`);
 }
 </script>
-<script src="./asserts/js/product.js"></script>
 <script src="./asserts/js/search.js"></script>
-<script src="./asserts/js/loggin.js"></script>
+    <script src="./asserts/js/loggin.js"></script>
+    <script src="./asserts/js/product.js"></script>
 </body>
 
 </html>

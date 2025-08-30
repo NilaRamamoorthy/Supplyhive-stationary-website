@@ -95,10 +95,10 @@
                     </li>
                 </ul>
 
-                <!-- Search bar -->
+                  <!-- Search bar -->
                 <form class="d-flex search-bar">
                     <input class="form-control search-input bg-primary" type="search"
-                        placeholder="Search for Stationery" aria-label="Search">
+                        placeholder="Search for Stationery" id="searchInput" aria-label="Search">
                     <button class="btn search-button" type="submit"><i class="bi bi-search"></i></button>
                 </form>
 
@@ -120,6 +120,8 @@
             </div>
         </div>
     </nav>
+    <!-- Main -->
+       <div id="main-content">
   <!-- Image container -->
     <div class="container text-center">
         <img src="./asserts/images/pens&writting.png" alt="Pens&writting" class="mb-4 img-fluid">
@@ -246,23 +248,28 @@
             &copy; 2025 Supplyhive Limited. All rights reserved.
         </div>
     </footer>
-
+</div>
+<div id="results" class="container">
+<div id="search-results"  class="row" style="display: none;">
+  <!-- product cards will appear here -->
+</div>
+</div>
     <!-- Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
    const products = [
-    { id:1,name: "Ball Pen", price: 20, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHpJjEs3RLAICHfi3Vau-r7jCs7baSinU-dQ&s" },
-    { id:2,name: "Gel Pen", price: 30, image: "https://i5.walmartimages.com/seo/Pen-Gear-Retractable-Gel-Ink-Pens-Assorted-Colors-0-7mm-12-Count_b5eb4524-6ddb-4a6e-9684-2adc092c4bcd.cae45f5f5cced2dd593aa29fd73d68ea.jpeg?odnHeight=768&odnWidth=768&odnBg=FFFFFF" },
-    { id:3,name: "Fountain Pen", price: 200, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSH-yk2iZUzVMh8EztP7_GmtPUZG7WGphYQ3A&s" },
-    { id:4,name: "Highlighter", price: 60, image: "https://cdn.mafrservices.com/sys-master-root/hbe/hdc/14529942749214/957772_main.jpg?im=Resize=480" },
-    { id:5,name: "Marker Set", price: 180, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTtQMFw1acCZrvU5wkX_ac4_Rg_d8Ez2x35Q&s" },
-    { id:6,name: "Sketch Pen", price: 110, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8w58xlFHhEEsnPZ1wYwcJd2vLJ3faQ4jEqg&s" },
-    { id:7,name: "Premium Pen", price: 450, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpTGkrGFZVRvUZCznB9RrcVVS7jIkvjdueFg&s" },
-    { id:8,name: "Refill Pack", price: 70, image: "https://www.jiomart.com/images/product/original/rvcdw1ggun/linc-glycer-0-6mm-ball-pen-refills-pack-of-50-blue-ink-product-images-orvcdw1ggun-p606654473-1-202312111156.jpg?im=Resize=(420,420)" },
-    {id:9, name: "Brush Pen", price: 140, image: "https://images-cdn.ubuy.ae/633abf301434c87f8e5d8e65-gc-72-colors-dual-tip-brush-pens.jpg" },
-    { id:10,name: "Signature Pen", price: 299, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsiIlkq0dR3KDkmZturmmw4aww12ql5U5Tnw&s" },
-    { id:11,name: "Calligraphy Set", price: 350, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROF8e0mqkz_biNGeGT_kcfPgrp63wu7rj3Kg&s" },
-    { id:12,name: "Pen Case", price: 95, image: "https://m.media-amazon.com/images/I/81YpyjEJcoL.jpg" },
+  { id:25,name: "Ball Pen", price: 20, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHpJjEs3RLAICHfi3Vau-r7jCs7baSinU-dQ&s" },
+    { id:26,name: "Gel Pen", price: 30, image: "https://i5.walmartimages.com/seo/Pen-Gear-Retractable-Gel-Ink-Pens-Assorted-Colors-0-7mm-12-Count_b5eb4524-6ddb-4a6e-9684-2adc092c4bcd.cae45f5f5cced2dd593aa29fd73d68ea.jpeg?odnHeight=768&odnWidth=768&odnBg=FFFFFF" },
+    { id:27,name: "Fountain Pen", price: 200, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSH-yk2iZUzVMh8EztP7_GmtPUZG7WGphYQ3A&s" },
+    { id:28,name: "Highlighter", price: 60, image: "https://cdn.mafrservices.com/sys-master-root/hbe/hdc/14529942749214/957772_main.jpg?im=Resize=480" },
+    { id:29,name: "Marker Set", price: 180, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTtQMFw1acCZrvU5wkX_ac4_Rg_d8Ez2x35Q&s" },
+    { id:30,name: "Sketch Pen", price: 110, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8w58xlFHhEEsnPZ1wYwcJd2vLJ3faQ4jEqg&s" },
+    { id:31,name: "Premium Pen", price: 450, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpTGkrGFZVRvUZCznB9RrcVVS7jIkvjdueFg&s" },
+    { id:32,name: "Refill Pack", price: 70, image: "https://www.jiomart.com/images/product/original/rvcdw1ggun/linc-glycer-0-6mm-ball-pen-refills-pack-of-50-blue-ink-product-images-orvcdw1ggun-p606654473-1-202312111156.jpg?im=Resize=(420,420)" },
+    {id:33, name: "Brush Pen", price: 140, image: "https://images-cdn.ubuy.ae/633abf301434c87f8e5d8e65-gc-72-colors-dual-tip-brush-pens.jpg" },
+    { id:34,name: "Signature Pen", price: 299, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsiIlkq0dR3KDkmZturmmw4aww12ql5U5Tnw&s" },
+    { id:35,name: "Calligraphy Set", price: 350, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROF8e0mqkz_biNGeGT_kcfPgrp63wu7rj3Kg&s" },
+    { id:36,name: "Pen Case", price: 95, image: "https://m.media-amazon.com/images/I/81YpyjEJcoL.jpg" },
   ];
  function viewProduct(element) {
   const productId = element.getAttribute("data-id");

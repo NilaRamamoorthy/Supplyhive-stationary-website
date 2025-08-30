@@ -64,10 +64,10 @@
                     </li>
                 </ul>
 
-                <!-- Search bar -->
+                   <!-- Search bar -->
                 <form class="d-flex search-bar">
                     <input class="form-control search-input bg-primary" type="search"
-                        placeholder="Search for Stationery" aria-label="Search">
+                        placeholder="Search for Stationery" id="searchInput" aria-label="Search">
                     <button class="btn search-button" type="submit"><i class="bi bi-search"></i></button>
                 </form>
 
@@ -89,6 +89,8 @@
             </div>
         </div>
     </nav>
+    <!-- main -->
+       <div id="main-content">
 <!-- Product Description -->
   <div class="container mt-5">
     <h2 class="text-end fw-bold mb-4">Product Description</h2>
@@ -229,7 +231,12 @@
             &copy; 2025 Supplyhive Limited. All rights reserved.
         </div>
     </footer>
-
+</div>
+<div id="results" class="container">
+<div id="search-results"  class="row" style="display: none;">
+  <!-- product cards will appear here -->
+</div>
+</div>
   <script>
     const product = JSON.parse(localStorage.getItem("selectedProduct"));
 
@@ -262,6 +269,8 @@
       window.location.href = "billing.html"; // change this if you have a different page
     }
   </script>
-  <script src="./asserts/js/loggin.js"></script>
+ <script src="./asserts/js/search.js"></script>
+    <script src="./asserts/js/loggin.js"></script>
+    <script src="./asserts/js/product.js"></script>
 </body>
 </html>

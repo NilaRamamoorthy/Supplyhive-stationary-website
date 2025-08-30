@@ -1,64 +1,57 @@
-function showAllResults() {
-  const results = document.getElementById("searchResults");
-  results.innerHTML = "";
-  allProducts.forEach(product => {
-    const li = document.createElement("li");
-    li.className = "list-group-item d-flex align-items-center";
-    li.innerHTML = `
-      <img src="${product.image}" width="40" class="me-2" />
-      <span>${product.name}</span>
-    `;
-    li.onclick = () => {
-      alert(`Clicked on ${product.name}`);
-      results.style.display = "none";
-    };
-    results.appendChild(li);
-  });
-  results.style.display = "block";
-}
+const searchInput = document.getElementById("searchInput");
+const results = document.getElementById("search-results");
+const mainContent = document.getElementById("main-content");
+// const searchResults = document.getElementById("search-results");
 
-function filterSearch() {
-  const input = document.getElementById("searchInput").value.toLowerCase();
-  const results = document.getElementById("searchResults");
+// Display product cards
+function displayResults(term) {
+  const filtered = products.filter(p =>
+    p.name.toLowerCase().includes(term.toLowerCase())
+  );
 
-  if (!input) {
-    showAllResults();
+  results.innerHTML = ""; // Clear previous results
+
+  if (filtered.length === 0) {
+    results.innerHTML = "<p class='text-muted'>No products found.</p>";
     return;
   }
 
-  const filtered = allProducts.filter(p =>
-    p.name.toLowerCase().includes(input)
-  );
+filtered.forEach(p => {
+  const col = document.createElement("div");
+  col.className = "col-12 col-sm-6 col-md-4 col-lg-3 mb-4"; // Responsive 4-in-a-row on large screens
+  col.innerHTML = `
+    <div class="product-card text-center" onclick='viewProduct(${JSON.stringify(JSON.stringify(p))})'>
+      <img src="${p.image}" alt="${p.name}" style="width: 100%; height: 200px; object-fit: contain; border-radius: 10px; background: #f8f8f8;">
+      <h5 class="mt-2">${p.name}</h5>
+      <p>Rs.${p.price}</p>
+    </div>
+  `;
+  results.appendChild(col);
+});
 
-  results.innerHTML = "";
-
-  if (filtered.length === 0) {
-    results.innerHTML = `<li class="list-group-item">No results found</li>`;
-  } else {
-    filtered.forEach(product => {
-      const li = document.createElement("li");
-      li.className = "list-group-item d-flex align-items-center";
-      li.innerHTML = `
-        <img src="${product.image}" width="40" class="me-2" />
-        <span>${product.name}</span>
-      `;
-      li.onclick = () => {
-        alert(`Clicked on ${product.name}`);
-        results.style.display = "none";
-      };
-      results.appendChild(li);
-    });
-  }
-
-  results.style.display = "block";
 }
 
-// Optional: Hide on outside click
-document.addEventListener("click", (e) => {
-  const searchBox = document.getElementById("searchInput");
-  const results = document.getElementById("searchResults");
+// Handle product click
+function viewProduct(productJSON) {
+  const product = JSON.parse(productJSON);
+  localStorage.setItem("selectedProduct", JSON.stringify(product));
+  window.location.href = "product.html";
+}
 
-  if (!searchBox.contains(e.target) && !results.contains(e.target)) {
+
+// Toggle views based on search input
+//  const mainContent = document.getElementById("main-content");
+// const searchResults = document.getElementById("results");
+
+searchInput.addEventListener("input", () => {
+  const term = searchInput.value.trim();
+
+  if (term.length === 0) {
+    mainContent.style.display = "block";
     results.style.display = "none";
+  } else {
+    mainContent.style.display = "none";
+    results.style.display = "flex";  // or "block" works, but flex better for .row
+    displayResults(term);
   }
 });

@@ -101,13 +101,12 @@
                     </li>
                 </ul>
 
-                <!-- Search bar -->
+                   <!-- Search bar -->
                 <form class="d-flex search-bar">
                     <input class="form-control search-input bg-primary" type="search"
-                        placeholder="Search for Stationery" aria-label="Search">
+                        placeholder="Search for Stationery" id="searchInput" aria-label="Search">
                     <button class="btn search-button" type="submit"><i class="bi bi-search"></i></button>
                 </form>
-
                 <!-- Icons -->
                 <ul class="navbar-nav ms-3">
                     <li class="nav-item me-3">
@@ -127,6 +126,7 @@
         </div>
     </nav>
 <!-- Main -->
+   <div id="main-content">
    <!-- Image container -->
     <div class="container text-center">
         <img src="./asserts/images/track order.png" alt="trackorder-main" class="mb-4 img-fluid">
@@ -230,7 +230,12 @@
             &copy; 2025 Supplyhive Limited. All rights reserved.
         </div>
     </footer>
-
+</div>
+<div id="results" class="container">
+<div id="search-results"  class="row" style="display: none;">
+  <!-- product cards will appear here -->
+</div>
+</div>
     <!-- Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
@@ -302,7 +307,9 @@ document.getElementById("paymentMethod").textContent =
       });
     }
   </script>
-<script src="./asserts/js/loggin.js"></script>
+<script src="./asserts/js/search.js"></script>
+    <script src="./asserts/js/loggin.js"></script>
+    <script src="./asserts/js/product.js"></script>
 </body>
 
 </html>
