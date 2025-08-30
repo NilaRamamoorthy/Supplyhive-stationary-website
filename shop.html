@@ -37,11 +37,13 @@
     .sidebar a:hover {
       text-decoration: underline;
     }
+    
     .card-body {
       background-color: #7AABF5;
      border-bottom-left-radius: 15px;
      border-bottom-right-radius: 15px;
       padding: 15px;
+      margin-top: -20px;
       text-align: center;
       height: 100%;
     }
@@ -252,13 +254,13 @@
     { id:3,name: "Notebook Set", price: 280, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFsjMPUPROus-n2rOYYcm50_REpSr2Zb76Og&s",description: "This Notebook Set is designed to meet the needs of students, engineers, and professionals...", },
     { id:4,name: "Pen Pack", price: 80, image: "https://s3-pwa-prod.mumzworld.com/media/cGF0aD0lMkZtZWRpYSUyRmNhdGFsb2clMkZwcm9kdWN0JTJGaiUyRmElMkZqYXMtbXA5MjEtc2t5Ymx1ZS1wYWNrb2Y1LXVtYS1zdHJhaWdodC1tZXRhbC1wZW4tcGFjay1vZi01LXNreS1ibHVlLTE2NTkwMTQ0MTQuanBnJmZpdD11bmRlZmluZWQ/Uma%20-%20Straight%20Metal%20Pen%20Pack%20of%205%20-%20Sky%20Blue.jpeg" },
     { id:5,name: "Clipboard", price: 320, image: "https://play-lh.googleusercontent.com/BggKi4WCYbq-VuWBK4U96scwxa2rNTiAe1amDkYTJcMLaPPJ2PHhJItWwSGwVhbjMw1c",description: "This Clipboard is designed to meet the needs of students, engineers, and professionals...", },
-    { id:6,name: "Markers", price: 150, image: "https://via.placeholder.com/150",description: "This scientific calculator is designed to meet the needs of students, engineers, and professionals...", },
-    { id:7,name: "Scissors", price: 210, image: "https://via.placeholder.com/150",description: "This scientific calculator is designed to meet the needs of students, engineers, and professionals...", },
-    { id:8,name: "Glue Stick", price: 90, image: "https://via.placeholder.com/150",description: "This scientific calculator is designed to meet the needs of students, engineers, and professionals...", },
-    { id:9,name: "Highlighter", price: 60, image: "https://via.placeholder.com/150",description: "This scientific calculator is designed to meet the needs of students, engineers, and professionals...", },
-    { id:10,name: "File Folder", price: 180, image: "https://via.placeholder.com/150",description: "This scientific calculator is designed to meet the needs of students, engineers, and professionals...", },
-    { id:11,name: "Drawing Book", price: 240, image: "https://via.placeholder.com/150",description: "This scientific calculator is designed to meet the needs of students, engineers, and professionals...", },
-    { id:12,name: "Staple Pins", price: 70, image: "https://via.placeholder.com/150",description: "This scientific calculator is designed to meet the needs of students, engineers, and professionals...", }
+    { id:6,name: "Markers", price: 150, image: "https://m.media-amazon.com/images/I/71cGqmpjcaL.jpg"},
+    { id:7,name: "Scissors", price: 210, image: "https://images-cdn.ubuy.ae/645493d310f2262c352bbb13-kids-scissors-ibayam-5-34-kid.jpg"},
+    { id:8,name: "Glue Stick", price: 90, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5_2id2cm-JYdBW0AFcLVax0M7mJMRog6EpQ&s" },
+    { id:9,name: "Highlighter", price: 60, image: "https://cdn.mafrservices.com/sys-master-root/hbe/hdc/14529942749214/957772_main.jpg?im=Resize=480" },
+    { id:10,name: "File Folder", price: 180, image: "https://image.made-in-china.com/202f0j00OnyicsDPLfpW/Letter-Size-Assorted-Colors-Transparent-Information-Booklet-A4-Insert-Folder-Office-File-Folders.webp" },
+    { id:11,name: "Drawing Book", price: 240, image: "https://www.cotsandcuddles.com/cdn/shop/files/bcbe2c12-607d-4dc9-97ab-3a739d2fa542.jpg?v=1718173848"},
+    { id:12,name: "Staple Pins", price: 70, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9pT1--oU-cnJWOSlkIVe3H59vgiLmOIU93A&s"}
   ];
 
  function viewProduct(element) {
@@ -285,7 +287,7 @@ function renderProducts(productList) {
     col.innerHTML = `
       <div class="product-card mx-5 mx-md-0" onclick="viewProduct(this)" data-id="${product.id}">
         <img src="${product.image}" alt="${product.name}">
-        <div class=card-body>
+        <div class="card-body pt-4">
         <h6 class="mt-2">${product.name}</h6>
         <div class="rating">★★★★★</div>
         <p><strong>Rs. ${product.price}</strong><br>
