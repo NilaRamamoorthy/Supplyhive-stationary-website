@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Sign In</title>
+  <title>Login via Email/Phone</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Bootstrap 5 -->
@@ -26,6 +26,10 @@
     .login-container h2 {
       margin-bottom: 25px;
     }
+
+    .hidden {
+      display: none;
+    }
   </style>
 </head>
 <body>
@@ -35,36 +39,103 @@
 
     <form id="loginForm">
       <div class="mb-3">
-        <label for="email" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="email" required placeholder="example@email.com">
+        <label for="identifier" class="form-label">Email or Phone Number</label>
+        <input type="text" class="form-control" id="identifier" required placeholder="Enter email or phone">
+        <div id="errorMsg" class="text-danger mt-2"></div>
       </div>
 
-      <div class="mb-4">
-        <label for="password" class="form-label">Password</label>
-        <input type="password" class="form-control" id="password" required placeholder="••••••••">
+      <!-- OTP input, hidden initially -->
+      <div class="mb-3 hidden" id="otpContainer">
+        <label for="otp" class="form-label">Enter OTP</label>
+        <input type="text" class="form-control" id="otp" placeholder="Enter OTP">
       </div>
 
-      <button type="submit" class="btn btn-primary w-100">Login</button>
+      <!-- Buttons -->
+      <button type="button" id="sendOtpBtn" class="btn btn-primary w-100">Send OTP</button>
+      <button type="submit" id="loginBtn" class="btn btn-success w-100 mt-3 hidden">Login</button>
     </form>
   </div>
 
-  <script>
-    const loginForm = document.getElementById('loginForm');
+ 
+  <!-- Modal -->
+<div class="modal fade" id="signupPromptModal" tabindex="-1" aria-labelledby="signupPromptLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="signupPromptLabel">User Not Found</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        The entered email or phone number is not registered. Would you like to sign up?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <a href="signup.html" class="btn btn-primary">Go to Signup</a>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  const loginForm = document.getElementById("loginForm");
+  const identifierInput = document.getElementById("identifier");
+  const otpContainer = document.getElementById("otpContainer");
+  const sendOtpBtn = document.getElementById("sendOtpBtn");
+  const loginBtn = document.getElementById("loginBtn");
+  const errorMsg = document.getElementById("errorMsg");
 
-    loginForm.addEventListener('submit', function(e) {
-      e.preventDefault();
+  // Simulate checking user from localStorage
+  function checkUserExists(identifier) {
+    const user = JSON.parse(localStorage.getItem("supplyhiveUser"));
+    return user && (user.email === identifier || user.phone === identifier);
+  }
 
-      // You can validate email and password here if needed
+  sendOtpBtn?.addEventListener("click", () => {
+    const input = identifierInput.value.trim();
 
-      const email = document.getElementById("email").value;
+    if (!input) {
+      errorMsg.textContent = "Please enter email or phone number.";
+      return;
+    }
 
-      // Store a fake "user" session in localStorage
-      localStorage.setItem("user", email);
+    if (checkUserExists(input)) {
+      errorMsg.textContent = "";
+      otpContainer.classList.remove("hidden");
+      loginBtn.classList.remove("hidden");
+      sendOtpBtn.classList.add("hidden");
 
-      alert("You are signed in!");
-      window.location.href = "index.html"; // Redirect to home page
-    });
-  </script>
+      alert("OTP sent to " + input);
+    } else {
+      errorMsg.textContent = "";
+      otpContainer.classList.add("hidden");
+      loginBtn.classList.add("hidden");
+
+      // Show signup modal
+      const modal = new bootstrap.Modal(document.getElementById('signupPromptModal'));
+      modal.show();
+    }
+  });
+
+  loginForm?.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const otp = document.getElementById("otp").value.trim();
+    const identifier = identifierInput.value.trim();
+
+    if (!otp || otp.length < 4) {
+      errorMsg.textContent = "Please enter a valid OTP.";
+      return;
+    }
+
+    // Successful login
+    localStorage.setItem("user", identifier);
+    localStorage.setItem("isLoggedIn", "true");
+
+    alert("Login successful!");
+    window.location.href = "index.html";
+  });
+</script>
+
 
 </body>
 </html>

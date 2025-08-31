@@ -310,23 +310,27 @@
         window.onload = renderCart;
     </script>
     <script>
-  document.getElementById("checkoutBtn").addEventListener("click", function () {
-    const user = localStorage.getItem("user");
-    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+ document.getElementById("checkoutBtn").addEventListener("click", function () {
+  const user = localStorage.getItem("user");
+  const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-    if (cart.length === 0) {
-      alert("Your cart is empty. Please add items to proceed.");
-      window.location.href = "shop.html"; // 👈 Redirect to shop
-      return;
-    }
+  if (cart.length === 0) {
+    alert("Your cart is empty. Please add items to proceed.");
+    window.location.href = "shop.html";
+    return;
+  }
 
-    if (!user) {
-      alert("You must sign in first.");
-      window.location.href = "signin.html";
-    } else {
-      window.location.href = "billing.html";
-    }
-  });
+  if (!user || !isLoggedIn) {
+    alert("You must sign in first.");
+    window.location.href = "signin.html";
+    return;
+  }
+
+  // Proceed to billing
+  window.location.href = "billing.html";
+});
+
 </script>
 
 
